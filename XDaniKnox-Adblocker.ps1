@@ -1,6 +1,6 @@
 # ============================================
-# XDaniKnox Adblocker - Spotify Reklámblokkoló
-# Verzió: 1.0
+# XDaniKnox Adblocker - Spotify Ad Blocker
+# Version: 1.0
 # ============================================
 
 function Show-LoadingScreen {
@@ -23,11 +23,11 @@ function Show-LoadingScreen {
     Write-Host $logo -ForegroundColor Cyan
     Write-Host ""
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-    Write-Host "    ║  Spotify reklámblokkoló és optimalizáló eszköz             ║" -ForegroundColor White
-    Write-Host "    ║  Készítette: XDaniKnox                                    ║" -ForegroundColor White
+    Write-Host "    ║  Spotify Ad Blocker & Optimizer                           ║" -ForegroundColor White
+    Write-Host "    ║  Made by: XDaniKnox                                      ║" -ForegroundColor White
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "    Betöltés folyamatban..." -ForegroundColor Yellow
+    Write-Host "    Loading..." -ForegroundColor Yellow
     Write-Host ""
     
     for ($i = 0; $i -le 40; $i++) {
@@ -58,23 +58,23 @@ function Show-Menu {
     Write-Host "    ║               XDaniKnox Adblocker                         ║" -ForegroundColor Cyan
     Write-Host "    ╠════════════════════════════════════════════════════════════╣" -ForegroundColor Cyan
     Write-Host "    ║                                                            ║" -ForegroundColor Cyan
-    Write-Host "    ║     [1] 🔒 Reklámok letiltása                             ║" -ForegroundColor Yellow
-    Write-Host "    ║     [2] 🎙️ Podcastok letiltása                           ║" -ForegroundColor Yellow
-    Write-Host "    ║     [3] ⭐ Premium mód aktiválása                        ║" -ForegroundColor Yellow
-    Write-Host "    ║     [4] 🚀 Összes funkció aktiválása                    ║" -ForegroundColor Yellow
-    Write-Host "    ║     [5] 🔄 Spotify frissítés blokkolása                 ║" -ForegroundColor Yellow
-    Write-Host "    ║     [6] ❌ Kilépés                                      ║" -ForegroundColor Yellow
+    Write-Host "    ║     [1] 🔒 Block Ads                                      ║" -ForegroundColor Yellow
+    Write-Host "    ║     [2] 🎙️ Block Podcasts                                ║" -ForegroundColor Yellow
+    Write-Host "    ║     [3] ⭐ Activate Premium Mode                          ║" -ForegroundColor Yellow
+    Write-Host "    ║     [4] 🚀 Activate All Features                         ║" -ForegroundColor Yellow
+    Write-Host "    ║     [5] 🔄 Block Spotify Updates                         ║" -ForegroundColor Yellow
+    Write-Host "    ║     [6] ❌ Exit                                          ║" -ForegroundColor Yellow
     Write-Host "    ║                                                            ║" -ForegroundColor Cyan
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Green
-    Write-Host "    ║     👆 NYOMD MEG AZ 1-EST HOGY LETILTSD A REKLÁMOKAT!    ║" -ForegroundColor Green
+    Write-Host "    ║     👆 PRESS 1 TO BLOCK ADS!                             ║" -ForegroundColor Green
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Green
     Write-Host ""
 }
 
 # ============================================
-# PARAMÉTEREK BEÁLLÍTÁSA (alapértelmezett értékek)
+# PARAMETERS (default values)
 # ============================================
 $premium = $false
 $podcasts_off = $false
@@ -82,24 +82,22 @@ $adsections_off = $false
 $canvashome_off = $false
 $block_update_on = $false
 $DisableStartup = $false
-$no_shortcut = $false
-$start_spoti = $false
 
 # ============================================
-# BETÖLTŐKÉPERNYŐ ÉS MENÜ
+# LOADING SCREEN & MENU
 # ============================================
 Show-LoadingScreen
 
 $choice = $null
 do {
     Show-Menu
-    $choice = Read-Host "    Válassz egy opciót (1-6)"
+    $choice = Read-Host "    Choose an option (1-6)"
     
     switch ($choice) {
         "1" {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Green
-            Write-Host "    ║  🔒 Reklámok letiltása folyamatban...                     ║" -ForegroundColor Green
+            Write-Host "    ║  🔒 Blocking Ads...                                      ║" -ForegroundColor Green
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Green
             $podcasts_off = $true
             $adsections_off = $true
@@ -109,7 +107,7 @@ do {
         "2" {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-            Write-Host "    ║  🎙️ Podcastok letiltása folyamatban...                   ║" -ForegroundColor Yellow
+            Write-Host "    ║  🎙️ Blocking Podcasts...                                 ║" -ForegroundColor Yellow
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
             $podcasts_off = $true
             break
@@ -117,7 +115,7 @@ do {
         "3" {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Magenta
-            Write-Host "    ║  ⭐ Premium mód aktiválása...                             ║" -ForegroundColor Magenta
+            Write-Host "    ║  ⭐ Activating Premium Mode...                           ║" -ForegroundColor Magenta
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Magenta
             $premium = $true
             break
@@ -125,7 +123,7 @@ do {
         "4" {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-            Write-Host "    ║  🚀 Összes funkció aktiválása...                         ║" -ForegroundColor Cyan
+            Write-Host "    ║  🚀 Activating All Features...                           ║" -ForegroundColor Cyan
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
             $podcasts_off = $true
             $adsections_off = $true
@@ -137,7 +135,7 @@ do {
         "5" {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-            Write-Host "    ║  🔄 Spotify frissítés blokkolása...                      ║" -ForegroundColor Yellow
+            Write-Host "    ║  🔄 Blocking Spotify Updates...                          ║" -ForegroundColor Yellow
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
             $block_update_on = $true
             break
@@ -145,8 +143,8 @@ do {
         "6" {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Red
-            Write-Host "    ║  ❌ Kilépés...                                            ║" -ForegroundColor Red
-            Write-Host "    ║  Köszönjük, hogy az XDaniKnox Adblockert használtad!     ║" -ForegroundColor Red
+            Write-Host "    ║  ❌ Exiting...                                            ║" -ForegroundColor Red
+            Write-Host "    ║  Thanks for using XDaniKnox Adblocker!                   ║" -ForegroundColor Red
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Red
             Start-Sleep -Seconds 2
             exit
@@ -154,7 +152,7 @@ do {
         default {
             Write-Host ""
             Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Red
-            Write-Host "    ║  ❌ Érvénytelen választás! Kérlek válassz 1-6 között.    ║" -ForegroundColor Red
+            Write-Host "    ║  ❌ Invalid choice! Please choose 1-6.                   ║" -ForegroundColor Red
             Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Red
             Start-Sleep -Seconds 2
         }
@@ -163,36 +161,36 @@ do {
 
 Write-Host ""
 Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "    ║  ⏳ Folyamat indítása...                                  ║" -ForegroundColor Cyan
+Write-Host "    ║  ⏳ Starting process...                                   ║" -ForegroundColor Cyan
 Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Start-Sleep -Seconds 1
 Clear-Host
 
 # ============================================
-# FŐ FOLYAMAT - SPOTIFY MÓDOSÍTÁSA
+# MAIN PROCESS - SPOTIFY MODIFICATION
 # ============================================
 
 Write-Host ""
 Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "    ║  🔧 Spotify folyamatok leállítása...                      ║" -ForegroundColor Cyan
+Write-Host "    ║  🔧 Stopping Spotify processes...                         ║" -ForegroundColor Cyan
 Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 
-# Spotify leállítása
+# Kill Spotify
 Get-Process -Name Spotify* -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
 Start-Sleep -Seconds 2
 
-# Spotify mappa
+# Spotify paths
 $spotifyPath = "$env:APPDATA\Spotify"
 $spotifyExe = "$spotifyPath\Spotify.exe"
 $hostsPath = "$env:windir\System32\drivers\etc\hosts"
 
 # ============================================
-# REKLÁMOK LETILTÁSA (hosts fájl)
+# BLOCK ADS (hosts file)
 # ============================================
 if ($adsections_off -or $podcasts_off) {
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-    Write-Host "    ║  🛡️ Reklám domainek blokkolása...                         ║" -ForegroundColor Yellow
+    Write-Host "    ║  🛡️ Blocking ad domains...                                ║" -ForegroundColor Yellow
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
     Write-Host ""
 
@@ -204,10 +202,10 @@ if ($adsections_off -or $podcasts_off) {
         "0.0.0.0 analytics.spotify.com"
     )
 
-    # Biztonsági másolat
+    # Backup
     Copy-Item $hostsPath "$hostsPath.bak" -Force -ErrorAction SilentlyContinue
 
-    # Régi bejegyzések eltávolítása (csak a Spotify-hoz tartozók)
+    # Remove old entries
     $content = Get-Content $hostsPath -ErrorAction SilentlyContinue
     $newContent = @()
     $skip = $false
@@ -219,25 +217,25 @@ if ($adsections_off -or $podcasts_off) {
         if (-not $skip) { $newContent += $line }
     }
 
-    # Új bejegyzések hozzáadása
+    # Add new entries
     $newContent += ""
-    $newContent += "# XDaniKnox Adblocker - Spotify reklámblokkoló"
+    $newContent += "# XDaniKnox Adblocker - Spotify Ad Blocker"
     foreach ($ad in $ads) {
         $newContent += $ad
     }
     $newContent += "# XDaniKnox Adblocker - Spotify End"
 
     $newContent | Out-File $hostsPath -Encoding ASCII -Force
-    Write-Host "    ✅ Reklám domainek blokkolva!" -ForegroundColor Green
+    Write-Host "    ✅ Ad domains blocked!" -ForegroundColor Green
     Write-Host ""
 }
 
 # ============================================
-# PODCASTOK LETILTÁSA (prefs fájl)
+# BLOCK PODCASTS (prefs file)
 # ============================================
 if ($podcasts_off) {
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-    Write-Host "    ║  🎙️ Podcastok letiltása...                                ║" -ForegroundColor Yellow
+    Write-Host "    ║  🎙️ Blocking podcasts...                                  ║" -ForegroundColor Yellow
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
     Write-Host ""
 
@@ -247,17 +245,17 @@ if ($podcasts_off) {
         $prefs = $prefs | Where-Object { $_ -notmatch "podcasts" }
         $prefs += 'app.hidden-entities={"podcasts":true}'
         $prefs | Out-File $prefsPath -Encoding UTF8 -Force
-        Write-Host "    ✅ Podcastok letiltva!" -ForegroundColor Green
+        Write-Host "    ✅ Podcasts blocked!" -ForegroundColor Green
     }
     Write-Host ""
 }
 
 # ============================================
-# PREMIUM MÓD
+# PREMIUM MODE
 # ============================================
 if ($premium) {
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Magenta
-    Write-Host "    ║  ⭐ Premium mód aktiválása...                              ║" -ForegroundColor Magenta
+    Write-Host "    ║  ⭐ Activating Premium Mode...                             ║" -ForegroundColor Magenta
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Magenta
     Write-Host ""
     
@@ -267,17 +265,17 @@ if ($premium) {
         $prefs = $prefs | Where-Object { $_ -notmatch "product_state" }
         $prefs += 'product_state={"pairs":[{"key":"catalog","value":"premium"}]}'
         $prefs | Out-File $prefsPath -Encoding UTF8 -Force
-        Write-Host "    ✅ Premium mód aktiválva!" -ForegroundColor Green
+        Write-Host "    ✅ Premium Mode activated!" -ForegroundColor Green
     }
     Write-Host ""
 }
 
 # ============================================
-# FRISSÍTÉS BLOKKOLÁS
+# BLOCK UPDATES
 # ============================================
 if ($block_update_on) {
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-    Write-Host "    ║  🔄 Spotify frissítés blokkolása...                       ║" -ForegroundColor Yellow
+    Write-Host "    ║  🔄 Blocking Spotify updates...                           ║" -ForegroundColor Yellow
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
     Write-Host ""
 
@@ -287,18 +285,18 @@ if ($block_update_on) {
     }
     New-Item -ItemType Directory -Path $updatePath -Force | Out-Null
     
-    # Írásvédelem beállítása
+    # Set read-only
     icacls $updatePath /deny Everyone:F /T /Q -ErrorAction SilentlyContinue
-    Write-Host "    ✅ Frissítés blokkolva!" -ForegroundColor Green
+    Write-Host "    ✅ Updates blocked!" -ForegroundColor Green
     Write-Host ""
 }
 
 # ============================================
-# INDÍTÁS LETILTÁSA
+# DISABLE STARTUP
 # ============================================
 if ($DisableStartup) {
     Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Yellow
-    Write-Host "    ║  ⏹️ Spotify indítás letiltása...                          ║" -ForegroundColor Yellow
+    Write-Host "    ║  ⏹️ Disabling Spotify startup...                           ║" -ForegroundColor Yellow
     Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Yellow
     Write-Host ""
 
@@ -312,31 +310,31 @@ if ($DisableStartup) {
         $prefs += 'app.autostart-mode="off"'
         $prefs | Out-File $prefsPath -Encoding UTF8 -Force
     }
-    Write-Host "    ✅ Indítás letiltva!" -ForegroundColor Green
+    Write-Host "    ✅ Startup disabled!" -ForegroundColor Green
     Write-Host ""
 }
 
 # ============================================
-# DNS CACHE TÖRLÉS
+# FLUSH DNS CACHE
 # ============================================
 Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "    ║  🔄 DNS cache törlése...                                   ║" -ForegroundColor Cyan
+Write-Host "    ║  🔄 Flushing DNS cache...                                  ║" -ForegroundColor Cyan
 Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Cyan
 Write-Host ""
 ipconfig /flushdns | Out-Null
-Write-Host "    ✅ DNS cache törölve!" -ForegroundColor Green
+Write-Host "    ✅ DNS cache flushed!" -ForegroundColor Green
 Write-Host ""
 
 # ============================================
-# BEFEJEZÉS
+# FINISH
 # ============================================
 Write-Host ""
 Write-Host "    ╔════════════════════════════════════════════════════════════╗" -ForegroundColor Green
-Write-Host "    ║  ✅ Sikeres befejezés!                                    ║" -ForegroundColor Green
-Write-Host "    ║  A Spotify reklámok letiltva!                            ║" -ForegroundColor Green
-Write-Host "    ║  Köszönjük, hogy az XDaniKnox Adblockert használtad!    ║" -ForegroundColor Green
-Write-Host "    ║  Indítsd újra a Spotify-t a változásokhoz!              ║" -ForegroundColor Green
+Write-Host "    ║  ✅ Successfully completed!                               ║" -ForegroundColor Green
+Write-Host "    ║  Spotify ads have been blocked!                          ║" -ForegroundColor Green
+Write-Host "    ║  Thanks for using XDaniKnox Adblocker!                  ║" -ForegroundColor Green
+Write-Host "    ║  Restart Spotify for changes to take effect!            ║" -ForegroundColor Green
 Write-Host "    ╚════════════════════════════════════════════════════════════╝" -ForegroundColor Green
 Write-Host ""
 
-Read-Host "    Nyomj Enter-t a kilépéshez"
+Read-Host "    Press Enter to exit"
